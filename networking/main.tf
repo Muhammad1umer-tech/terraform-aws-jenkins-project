@@ -11,10 +11,12 @@ resource "aws_vpc" "custom_vpc" {
 resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.custom_vpc.id
   cidr_block = var.public_subnet
+  # map_public_ip_on_launch = true # wont work
 
   tags = {
     Name = "custom-public-subnet"
   }
+
 }
 
 resource "aws_subnet" "private_subnet" {
