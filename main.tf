@@ -12,4 +12,6 @@ module "EC2" {
   private_ip_ec2_instance = "10.0.1.4"
   public_key_path = "./terraform_public_ec2.pub"
   custom_vpc_id = module.network.custom_vpc_id
+  start_app_file_path = "templates/start_app.sh"
+  
 }

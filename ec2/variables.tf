@@ -22,3 +22,8 @@ variable "custom_vpc_id" {
     description = "Id of custom VPC"
     type = string
 }
+
+variable "start_app_file_path" {
+    description = "Start App file path"
+    type = string
+}

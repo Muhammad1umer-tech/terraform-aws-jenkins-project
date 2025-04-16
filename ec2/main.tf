@@ -23,6 +23,7 @@ resource "aws_instance" "custom_public_ec2" {
   ami           = var.ami
   instance_type = "t2.micro"
   key_name = aws_key_pair.custom_public_instance_key.key_name
+  user_data = file(var.start_app_file_path)
  
   tags = {
     Name = "custom_public_ec2"

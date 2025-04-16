@@ -1,2 +1,7 @@
+#Terraform
 .terraform*
 terraform_public*
+
+#Backend
+flaskAPP/.env
+flaskAPP/venv
