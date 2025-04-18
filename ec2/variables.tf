@@ -3,9 +3,9 @@ variable  "ami" {
     type        = string
 }
 
-variable  "public_subnet_id" {
-    description = "ID of public subnet"
-    type        = string
+variable  "public_subnet_ids" {
+    description = "IDs of public subnet"
+    type        = list(string)
 }
 
 variable "private_ip_ec2_instance" {

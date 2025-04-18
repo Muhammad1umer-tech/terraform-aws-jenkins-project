@@ -10,7 +10,7 @@ resource "aws_eip" "custom_public_ip_eip" {
 
 
 resource "aws_network_interface" "custom_ani" {
-  subnet_id   = var.public_subnet_id
+  subnet_id   = var.public_subnet_ids[0]
   private_ips = [var.private_ip_ec2_instance]
   security_groups = [aws_security_group.custom_sg.id] 
 
@@ -56,6 +56,22 @@ resource "aws_security_group" "custom_sg" {
   ingress {
     from_port = "5000"
     to_port = "5000"
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  ingress {
+    from_port = "80"
+    to_port = "80"
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  ingress {
+    from_port = "443"
+    to_port = "443"
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
 

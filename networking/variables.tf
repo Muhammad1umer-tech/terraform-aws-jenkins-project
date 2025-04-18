@@ -4,8 +4,13 @@ variable "cidr_block" {
 }
 
 
-variable "public_subnet" {
-  description = "Public subnet IP range"
+variable "public_subnet_1" {
+  description = "Public subnet IP 1 range"
+  type        = string
+}
+
+variable "public_subnet_2" {
+  description = "Public subnet IP 2 range"
   type        = string
 }
 

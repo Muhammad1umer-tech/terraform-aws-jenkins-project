@@ -8,13 +8,25 @@ resource "aws_vpc" "custom_vpc" {
 }
 
 
-resource "aws_subnet" "public_subnet" {
+resource "aws_subnet" "public_subnet_1" {
   vpc_id     = aws_vpc.custom_vpc.id
-  cidr_block = var.public_subnet
+  cidr_block = var.public_subnet_1
   # map_public_ip_on_launch = true # wont work
+  availability_zone = "us-east-1a"
 
   tags = {
-    Name = "custom-public-subnet"
+    Name = "custom-public-subnet_1"
+  }
+
+}
+
+resource "aws_subnet" "public_subnet_2" {
+  vpc_id     = aws_vpc.custom_vpc.id
+  cidr_block = var.public_subnet_2
+  availability_zone = "us-east-1b"
+
+  tags = {
+    Name = "custom-public-subnet_2"
   }
 
 }
@@ -52,7 +64,12 @@ resource "aws_route_table" "custom_route_table" {
 }
 
 
-resource "aws_route_table_association" "custom_route_table_association" {
-  subnet_id      = "${aws_subnet.public_subnet.id}"
+resource "aws_route_table_association" "custom_route_table_association_1" {
+  subnet_id      = "${aws_subnet.public_subnet_1.id}"
+  route_table_id = "${aws_route_table.custom_route_table.id}"
+}
+
+resource "aws_route_table_association" "custom_route_table_association_2" {
+  subnet_id      = "${aws_subnet.public_subnet_2.id}"
   route_table_id = "${aws_route_table.custom_route_table.id}"
 }
