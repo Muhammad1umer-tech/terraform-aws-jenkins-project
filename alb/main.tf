@@ -26,7 +26,7 @@ resource "aws_lb" "custom_alb" {
   name               = "custom-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [var.custom_sg_id]
+  security_groups    = [var.ec2_custom_sg_id]
   subnets            = var.public_subnet_ids
 
   tags = {

@@ -15,7 +15,12 @@ variable "public_subnet_2" {
 }
 
 
-variable "private_subnet" {
-  description = "Private subnet IP range"
+variable "private_subnet_1" {
+  description = "Private subnet IP range 1"
+  type        = string
+}
+
+variable "private_subnet_2" {
+  description = "Private subnet IP range 2"
   type        = string
 }

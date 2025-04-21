@@ -31,14 +31,27 @@ resource "aws_subnet" "public_subnet_2" {
 
 }
 
-resource "aws_subnet" "private_subnet" {
+resource "aws_subnet" "private_subnet_1" {
   vpc_id     = aws_vpc.custom_vpc.id
-  cidr_block = var.private_subnet
+  cidr_block = var.private_subnet_1
+  availability_zone = "us-east-1a"
 
   tags = {
-    Name = "custom-private-subnet"
+    Name = "custom-private-subnet_1"
   }
 }
+
+
+resource "aws_subnet" "private_subnet_2" {
+  vpc_id     = aws_vpc.custom_vpc.id
+  cidr_block = var.private_subnet_2
+  availability_zone = "us-east-1b"
+
+  tags = {
+    Name = "custom-private-subnet_2"
+  }
+}
+
 
 
 resource "aws_internet_gateway" "custom_igw" {

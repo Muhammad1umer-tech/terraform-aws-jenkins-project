@@ -23,6 +23,14 @@ sleep 5
 
 cd simple-flask-app-for-cloud || exit 1
 
+cat <<EOF > .env
+DB_HOST=${host}
+DB_USERNAME=${username}
+DB_PASSWORD=${password}
+DB_NAME=${db}
+EOF
+
+
 # Create a virtual environment
 python3 -m venv venv
 

@@ -3,7 +3,7 @@ variable  "custom_vpc_id" {
     type        = string
 }
 
-variable  "custom_sg_id" {
+variable  "ec2_custom_sg_id" {
     description = "Custom sg id"
     type        = string
 }
