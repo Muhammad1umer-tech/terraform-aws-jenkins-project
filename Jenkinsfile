@@ -9,15 +9,20 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+       stage('Clone Repository') {
             steps {
                 greet('Cloning the GitHub project')
-                deleteDir()
-                git url: 'https://github.com/Muhammad1umer-tech/terraform-aws-jenkins-project.git', branch: 'main'
+                deleteDir()  // Cleans the workspace before cloning
+                dir('terraform-aws-jenkins-project') {
+                    git url: 'https://github.com/Muhammad1umer-tech/terraform-aws-jenkins-project.git', branch: 'main'
+                }
+                greet('Checking the directory contents')
+                sh 'ls' 
+                sh 'pwd' 
                 greet('Successfully Cloned the GitHub project')
             }
         }
-        
+
         stage('Plan Terraform') {
             steps {
                 script {
@@ -25,9 +30,6 @@ pipeline {
                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-crendentails-umer']]) {
                             dir('terraform-aws-jenkins-project') {
                                 greet('Running terraform plan')
-                                greet('Checking the directory contents')
-                                sh 'ls' 
-                                sh 'pwd' 
                                 sh 'terraform init'
                                 sh 'terraform plan'
                             }
