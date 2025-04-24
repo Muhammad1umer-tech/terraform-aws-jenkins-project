@@ -44,7 +44,7 @@ We use Terraform to automate infrastructure provisioning. Jenkins handles build 
 Infrastructure components such as EC2, RDS, Security Groups, and Load Balancer are provisioned using modular Terraform code organized into:
 
 - `terraform/flask_app --> https://github.com/Muhammad1umer-tech/simple-flask-app-for-cloud`
-- `terraform/jenkins --> https://github.com/Muhammad1umer-tech/simple-flask-app-for-cloud`
+- `terraform/jenkins --> https://github.com/Muhammad1umer-tech/Jenkins-AWS-infrastructure-provisioned`
 
 ### 2. EC2 Instances
 
