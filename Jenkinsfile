@@ -25,6 +25,8 @@ pipeline {
                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-crendentails-umer']]) {
                             dir('terraform-aws-jenkins-project') {
                                 greet('Running terraform plan')
+                                greet('Checking the directory contents')
+                                sh 'ls -al' 
                                 sh 'terraform init'
                                 sh 'terraform plan'
                             }
