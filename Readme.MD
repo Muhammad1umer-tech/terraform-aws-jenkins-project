@@ -43,8 +43,8 @@ We use Terraform to automate infrastructure provisioning. Jenkins handles build 
 
 Infrastructure components such as EC2, RDS, Security Groups, and Load Balancer are provisioned using modular Terraform code organized into:
 
-- `terraform/jenkins/`
-- `terraform/flask_app/`
+- `terraform/flask_app --> https://github.com/Muhammad1umer-tech/simple-flask-app-for-cloud`
+- `terraform/jenkins --> https://github.com/Muhammad1umer-tech/simple-flask-app-for-cloud`
 
 ### 2. EC2 Instances
 
@@ -69,26 +69,17 @@ Infrastructure components such as EC2, RDS, Security Groups, and Load Balancer a
 - Custom VPC setup with:
   - Public subnets for Jenkins and the Load Balancer.
   - Private subnets for Flask EC2 instances and RDS.
-- Internet Gateway for public access, NAT Gateway for private subnets.
-
----
-
-## Application Access
-
-- **Flask App**: [https://jhooq.org](https://jhooq.org)  
-- **Jenkins Dashboard**: [https://jenkins.jhooq.org](https://jenkins.jhooq.org)
-
-Both endpoints are secured with HTTPS and managed via Route 53 and AWS Certificate Manager (ACM).
+- Internet Gateway for public access.
 
 ---
 
 ## Security Configuration
 
 - **Security Groups**:
-  - Strict inbound/outbound rules for Jenkins, Flask, and RDS.
+  - Strict inbound/outbound rules for Jenkins, Flask, and used EC2 SG to allow inbound request to RDS.
   - ALB and Jenkins only expose necessary ports (e.g., 80/443, 8080).
 
 - **IAM Roles**:
-  - Fine-grained IAM roles assigned to EC2 for secure access to RDS and S3 if needed.
+  - Used AWS access key and ID in Jenkins so that the pipeline can be able to provisioned infrastructuer.
 
 ---
