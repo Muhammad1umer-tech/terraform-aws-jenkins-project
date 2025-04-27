@@ -6,6 +6,7 @@ This project demonstrates the deployment of a full CI/CD pipeline using Jenkins,
 
 We use Terraform to automate infrastructure provisioning. Jenkins handles build and deployment pipelines. Flask serves the web application, while MySQL RDS provides reliable data storage. AWS services like EC2, RDS, ELB, VPC, and security groups ensure a robust, highly available architecture.
 
+
 **AWS Services**:  
 ![EC2](https://img.shields.io/badge/AWS-EC2-FF9900?style=for-the-badge&logo=amazon-ec2&logoColor=white)
 ![RDS](https://img.shields.io/badge/AWS-RDS-527FFF?style=for-the-badge&logo=amazon-rds&logoColor=white)
